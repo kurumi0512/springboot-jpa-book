@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.entity.Author;
 
-@Repository
+@Repository // 標註這個介面為資料存取層（DAO）的一部分
 public interface AuthorRepository extends JpaRepository<Author, Integer> {
 	// 如果只要查作者的話,就用原先的寫法
 	// 如果要查作者和著作數量就用底下這個方法

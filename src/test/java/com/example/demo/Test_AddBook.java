@@ -23,6 +23,7 @@ public class Test_AddBook {
 	@Test
 	public void addBook() {
 		// 尋找作者
+		// 嘗試用 authorRepository 查詢主鍵（id = 1）的作者。
 		Optional<Author> optAuthor = authorRepository.findById(1);
 		if (optAuthor.isEmpty()) {
 			System.out.println("查無作者");

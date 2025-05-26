@@ -20,7 +20,7 @@ public class Test_ReadAuthor {
 	private BookRepository bookRepository;
 
 	@Test
-	// @Transactional
+	// @Transactional ->全部查詢
 	public void read() {
 		// 查詢作者(含自傳)
 		List<Author> authors = authorRepository.findAll();

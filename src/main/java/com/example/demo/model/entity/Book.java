@@ -29,7 +29,7 @@ public class Book {
 	// 查到書可以知道作者是誰
 	// Book是主控
 
-	@ManyToOne
+	@ManyToOne // 多對一(Author)
 	@JoinColumn(name = "author_id") // 可以自己自訂名字 ,資料表的關聯欄位
 	private Author author;
 }

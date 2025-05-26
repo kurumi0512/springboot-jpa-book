@@ -15,11 +15,11 @@ import lombok.Data;
 @Entity
 public class Author {
 
-	@Id
+	@Id // id是主鍵的意思
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Column(length = 50, nullable = false)
+	@Column(length = 50, nullable = false) // 作者名稱不超過50字
 	private String name;
 
 	@OneToOne(mappedBy = "author")
@@ -27,7 +27,7 @@ public class Author {
 
 	// mappedBy是被控端,被動
 	// 寫fetch = FetchType.EAGER,會把作者的全部書籍都寫出來,會比較耗能
-	@OneToMany(mappedBy = "author")
+	@OneToMany(mappedBy = "author") // 一對多,預設是LAZY
 	// @OneToMany(mappedBy = "author", fetch = FetchType.EAGER)
 	// 如果用Eager的話,即使想要查作者而已也會跑書籍出來
 	private List<Book> books;
