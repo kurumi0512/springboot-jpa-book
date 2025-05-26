@@ -31,9 +31,9 @@ public class Test_AddBiography {
 
 		Biography biography = new Biography();
 		biography.setDetails("我是一個java技術的 IT 作者...");
-		biography.setAuthor(author); // 設定關聯
+		biography.setAuthor(author); // 建立與作者之間的關聯
 
-		biographyRepository.save(biography);
+		biographyRepository.save(biography); // 自動處理與作者之間的關聯
 
 	}
 }

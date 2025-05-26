@@ -27,6 +27,7 @@ public class Test_ReadBook {
 		});
 
 		// 查詢書籍 + 作者
+		// 因為只有一筆,比較沒那麼吃效能(一對多)
 		books.forEach(book -> {
 			System.out.printf("序號:%d 書名:%s 作者:%s%n", book.getId(), book.getName(), book.getAuthor().getName());
 		});

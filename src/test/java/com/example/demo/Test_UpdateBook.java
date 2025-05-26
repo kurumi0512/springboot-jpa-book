@@ -25,7 +25,8 @@ public class Test_UpdateBook {
 	// 這是一個 JUnit 測試方法，用來執行「變更某本書的作者」
 	@Test
 	public void updateBookName() {
-		// 試圖找出 ID 為 2 的作者，試圖找出 ID 為 1 的書籍
+		// 「我要從資料庫找出 ID 為 2 的作者。」
+		// 也就是說，你明確指定要將書的作者換成「ID = 2 的那位作者」。
 		// （例如：「把《Java入門》改為由 ID=2 的作者來寫」）
 		Optional<Author> optAuthor = authorRepository.findById(2);
 		if (optAuthor.isEmpty()) {
