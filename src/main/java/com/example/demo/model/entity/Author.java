@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 @Data
@@ -20,6 +21,9 @@ public class Author {
 
 	@Column(length = 50, nullable = false)
 	private String name;
+
+	@OneToOne(mappedBy = "author")
+	private Biography biography;
 
 	// mappedBy是被控端,被動
 	// 寫fetch = FetchType.EAGER,會把作者的全部書籍都寫出來,會比較耗能

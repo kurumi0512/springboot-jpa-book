@@ -22,19 +22,22 @@ public class Test_ReadAuthor {
 	@Test
 	// @Transactional
 	public void read() {
-		// 只要查詢作者,就用原生的findAll
+		// 查詢作者(含自傳)
 		List<Author> authors = authorRepository.findAll();
 		authors.forEach(author -> {
-			System.out.printf("序號:%d 姓名:%s%n", author.getId(), author.getName());
+			System.out.printf("序號:%d 姓名:%s 自傳:%s%n", author.getId(), author.getName(),
+					author.getBiography().getDetails());
 
 		});
 
 		// 查詢作者+書籍 就要用我們自訂的findAllWithBooks()
 		List<Author> authors2 = authorRepository.findAllWithBooks();
 		authors2.forEach(author -> {
-			System.out.printf("序號:%d 姓名:%s 著作數量:%d%n", author.getId(), author.getName(), author.getBooks().size());
+			System.out.printf("序號:%d 姓名:%s 自傳:%s 著作數量:%d%n", author.getId(), author.getName(),
+					author.getBiography().getDetails(), author.getBooks().size());
 
 		});
+
 	}
 
 }
