@@ -30,7 +30,7 @@ public class Publisher {
 	// 自建一個新增書籍的方法
 	public void addBook(Book book) {
 		if (books == null) {
-			books = new CopyOnWriteArrayList<>(); // 多執行緒
+			books = new CopyOnWriteArrayList<>(); // 支援多執行緒並發安全
 		}
 		books.add(book);
 	}
