@@ -23,6 +23,7 @@ public class Book {
 	@Column(length = 100, nullable = false)
 	private String name;
 
+	// 這段關聯由 Publisher 實體中的 books 屬性來維護（也就是 Publisher 是主控端）。
 	@ManyToMany(mappedBy = "books")
 	private List<Publisher> publishers;
 

@@ -23,14 +23,14 @@ public class Publisher {
 	@Column(length = 50, nullable = false)
 	private String name;
 
-	@ManyToMany // 對book來說出版社是主控端,
+	@ManyToMany // 對book來說出版社是主控端,由出版社來維護跟書之間的關聯
 	@JoinTable(name = "publisher_book", joinColumns = @JoinColumn(name = "publisher_id"), inverseJoinColumns = @JoinColumn(name = "book_id"))
 	private List<Book> books;
 
 	// 自建一個新增書籍的方法
 	public void addBook(Book book) {
 		if (books == null) {
-			books = new CopyOnWriteArrayList<>();
+			books = new CopyOnWriteArrayList<>(); // 多執行緒
 		}
 		books.add(book);
 	}
