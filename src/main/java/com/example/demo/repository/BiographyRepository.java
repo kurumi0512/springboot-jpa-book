@@ -17,6 +17,7 @@ public interface BiographyRepository extends JpaRepository<Biography, Integer> {
 	// B 2
 	// D 4
 
+	// 適用在 author 是 LAZY 的情況，可以避免 N+1 問題（重複查很多次 DB）
 	@Query("select b from Biography b left join fetch b.author") // 若沒有查到 Author 則該欄位顯示 null
 	// 往左靠,用author拼進去
 	// A 1
